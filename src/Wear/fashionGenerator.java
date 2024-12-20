@@ -1,5 +1,4 @@
 package Wear;
-import Wear.pants.Jean;
 import Wear.pants.Pants;
 
 import java.lang.reflect.Array;
