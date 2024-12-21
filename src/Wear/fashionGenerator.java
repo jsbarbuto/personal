@@ -23,7 +23,7 @@ public class fashionGenerator {
 
 
     static public Random randomForShirt = new Random();//random number
-    static public Random randomForAccessory = new Random();//random number
+    static public Random randomForAccessory = new Random();
 
     static public Random randomForPants = new Random();//random number
     public int randomNumber = randomForPants.nextInt(pantsLength)+1;//random jean index//maybe need +1?
