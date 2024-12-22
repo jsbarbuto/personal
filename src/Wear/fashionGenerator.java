@@ -20,15 +20,17 @@ public class fashionGenerator {
     public static Pants pantsCreator (ArrayList<String> fabrics, ArrayList<String> colors, ArrayList<String> lengths){
         Random x = new Random(); int aNumber1 = x.nextInt(fabrics.size());
         String aFabric = fabrics.get(aNumber1);
-
+        
         Random y = new Random(); int aNumber2 = y.nextInt(colors.size());
         String aColor = colors.get(aNumber2);
-
+      
         Random z = new Random(); int aNumber3 = z.nextInt(lengths.size());
         String aLength = lengths.get(aNumber3);
 
         return new Pants (aFabric, aLength, aColor);
     }
+    Pants jean = new Pants("cotton","short","short");
+
 
     Pants jean = pantsCreator (fabrics, colors, lengthsPants);
 
