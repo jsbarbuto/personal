@@ -6,39 +6,43 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Random;
 
+import static Wear.pants.Pants.pantsToString;
+
 
 public class fashionGenerator {
     //clothes data
-    public ArrayList<String> fabrics = new ArrayList<>(Arrays.asList("denim", "corduroy", "cotton"));
-    public ArrayList<String> lengthsPants = new ArrayList<>(Arrays.asList("Short", "Long"));
-    public ArrayList<String> colors = new ArrayList<>(Arrays.asList("red", "blue" , "green"));
+    public static ArrayList<String> fabrics = new ArrayList<>(Arrays.asList("denim", "corduroy", "cotton"));
+    public static ArrayList<String> lengthsPants = new ArrayList<>(Arrays.asList("Short", "Long"));
+    public static ArrayList<String> colors = new ArrayList<>(Arrays.asList("red", "blue" , "green"));
 
     public ArrayList<String> lengthShirts = new ArrayList<>(Arrays.asList("tankTop", "ShortSleeve" , "LongSleeve"));
 
+    public static Pants pantsCreator (ArrayList<String> fabrics, ArrayList<String> colors, ArrayList<String> lengths){
+        Random x = new Random(); int aNumber1 = x.nextInt(fabrics.size());
+        String aFabric = fabrics.get(aNumber1);
+        
+        Random y = new Random(); int aNumber2 = y.nextInt(colors.size());
+        String aColor = colors.get(aNumber2);
+      
+        Random z = new Random(); int aNumber3 = z.nextInt(lengths.size());
+        String aLength = lengths.get(aNumber3);
 
+        return new Pants (aFabric, aLength, aColor);
+    }
     Pants jean = new Pants("cotton","short","short");
+
+
+    Pants jean = pantsCreator (fabrics, colors, lengthsPants);
 
     ArrayList<Pants> pants = new ArrayList<>(Arrays.asList(jean));//pants that we have
     public int pantsLength = pants.size();
 
-
-    static public Random randomForShirt = new Random();//random number
-    static public Random randomForAccessory = new Random();
-
-    static public Random randomForPants = new Random();//random number
-    public int randomNumber = randomForPants.nextInt(pantsLength)+1;//random jean index//maybe need +1?
-    public Boolean randomTorF = randomForPants.nextBoolean();//true or false?
-
-
-
-
-
-
-
+//////////////////////////////////////////////////////////////////////////
 
     public static void main(String[] args) {
 
-
-        System.out.println("Hello world!");
+        Pants jean = pantsCreator (fabrics,  colors, lengthsPants);
+        System.out.println(pantsToString(jean));
+        Pants shorts = pantsCreator (fabrics, colors, lengthsPants);
     }
 }
